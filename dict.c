@@ -1,12 +1,28 @@
 #include "rush02.h"
 
-
-
-int parse_list_row(char	*list_row, t_dict_list *tdlp)
+char	*skip_spaces(char *list_row)
 {
-	if (!list_row || !tdlp)
-		return -1;
+	
+}
 
+int	parse_list_row(char	*list_row, t_dict_list *tdlp)
+{
+	int	nb;
+
+	nb = 0;
+	if (!list_row || !tdlp)
+		return (-1);
+	while (*list_row == ' ')
+		list_row++;
+	while (*list_row >= '0' && *list_row <= '9')
+	{
+		nb = nb * 10 + (int)(*list_row - '0');
+		list_row++;
+	}
+	while (*list_row == ' ')
+		list_row++;
+	if (*list_row != ':')
+		return (-1);
 	return 0;
 }
 
