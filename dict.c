@@ -4,9 +4,10 @@
 
 int parse_list_row(char	*list_row, t_dict_list *tdlp)
 {
-	int	i;
+	if (!list_row || !tdlp)
+		return -1;
 
-	while ()
+	return 0;
 }
 
 int	parse_dict_str(char *str, int size, t_dict *tdp)
@@ -15,8 +16,11 @@ int	parse_dict_str(char *str, int size, t_dict *tdp)
 	char		**strl;
 	t_dict_list	*tdlp;
 
+	if (!tdp || !size)
+		return -1;
+
 	i = 0;
-	strl = ft_split(str, 10);
+	strl = ft_split(str, "\n");
 	tdlp = malloc(sizeof(t_dict_list));
 	while (strl[i])
 	{
@@ -26,6 +30,7 @@ int	parse_dict_str(char *str, int size, t_dict *tdp)
 		}
 		tdlp = malloc(sizeof(t_dict_list));
 	}
+	return 0;
 }
 
 int	parse_dict(char *filename, t_dict *tdp)
@@ -48,13 +53,15 @@ int	parse_dict(char *filename, t_dict *tdp)
 		file_str_i += size;
 	}
 	parse_dict_str(file_str, file_str_i, tdp);
+	return 0;
 }
 
 int	free_dict(t_dict tdp)
 {
-	int	i;
+	unsigned int	i;
 
 	i = 0;
 	while (i < tdp.size)
-		free(tdp.dict_list[i++]);
+		free((tdp.dict_list + i));
+	return 0;
 }
