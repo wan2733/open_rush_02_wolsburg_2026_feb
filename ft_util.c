@@ -10,6 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "rush02.h"
+
 void	ft_putchar(char c)
 {
 	write(1, &c, 1);
@@ -40,9 +42,9 @@ char	*ft_strdup(char *str)
 	dest = (char *)malloc(sizeof(char) * (len + 1));
 	if (dest == NULL)
 		return (NULL);
-	while (stc[i])
+	while (str[i])
 	{
-		dest[i] = src[i];
+		dest[i] = str[i];
 		i++;
 	}
 	dest[i] = '\0';
