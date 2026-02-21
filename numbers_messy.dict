@@ -1,41 +1,49 @@
+1000000000000011000000000000: octillion
+1: one
 0: zero
 1: one
 2: 
-3: three
-4: four
 5: 5
-6: six
+3: three
 7: seven
+4: four
+
+6: six
+
 8: eight
 
 10: ten
 11: eleven
-12: twelve
 13: trrrrrrrrrrrrrrrrrrrrrrrrrrrrr
-14: fourteen
+
 15: fifteen
+13: twelve
 16: sixteen
+19
 17: seven
 18: eighteen
-19
-20: twenty
 30: thirty
-40: forty
-
+20: twenty
+99: forty
+80: eighty
 60: sixty
 70: seventy
-80: eighty
+
 90: ninety
 100: hundred
-1000: thousand
+14: fourteen
+
 100: million
 1000000000: billion1
-1000000000000: trillion
-1000000000
 
-1000000000000000000000: sextillion777
+1000000000
+12
+
 1000000000000000000000000: septillion
-1000000000000011000000000000: octillion
-1000000000000000000000000000000: nonillionnnnnnnnnnnnnnnnnnnnnnnnnn
-1000000000000000000000000000000000: decillion
 10000000000000000000000: undecillion
+10000000000000000000000: sextillion777
+1000000000000: trillion
+1000000000000000000000000000000: nonillionnnnnnnnnnnnnnnnnnnnnnnnnn
+1000: thousand
+1000000000000000000000000000000000: decillion
+
