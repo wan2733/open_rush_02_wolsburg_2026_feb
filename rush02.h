@@ -7,7 +7,7 @@ char	**ft_split(char *str, char *charset);
 typedef struct s_dict
 {
     unsigned int	size;
-    t_dict_list		*dict_list;
+    struct s_dict_list		*dict_list;
 }				t_dict;
 
 typedef struct s_dict_list
