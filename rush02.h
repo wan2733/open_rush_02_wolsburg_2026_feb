@@ -6,6 +6,7 @@
 char	*ft_strncpy(char *dest, char *src, unsigned int n);
 char	**ft_split(char *str, char *charset);
 int     ft_strcmp(char *s1, char *s2);
+void	interactive(void);
 
 typedef struct s_dict
 {

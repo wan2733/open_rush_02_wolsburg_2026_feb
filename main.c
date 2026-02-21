@@ -16,6 +16,7 @@ int main(int argc, char **argv)
 	if (ft_strcmp(argv[1], "-") == 0)
     	{
 		printf("Placeholder for interactive mode\n");
+		interactive();
     	}
    	else
     	{
