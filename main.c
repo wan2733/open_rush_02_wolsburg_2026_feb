@@ -3,8 +3,8 @@
 
 int main_next(char *dict_file_name, char *num_str)
 {
-    printf("[info] main_next dict_file_name: %s num_str: %s", dict_file_name, num_str);
-
+    printf("[info] main_next dict_file_name: %s num_str: %s\n", dict_file_name, num_str);
+    return (0);
 }
 
 int main(int argc, char **argv)

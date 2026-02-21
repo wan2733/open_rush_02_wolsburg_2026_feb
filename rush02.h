@@ -1,5 +1,7 @@
 #ifndef RUSH02_H
 # define RUSH02_H
+#include <stdio.h>
+#include <unistd.h>
 
 char	*ft_strncpy(char *dest, char *src, unsigned int n);
 char	**ft_split(char *str, char *charset);
