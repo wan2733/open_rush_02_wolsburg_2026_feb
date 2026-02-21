@@ -4,7 +4,9 @@
 
 int parse_list_row(char	*list_row, t_dict_list *tdlp)
 {
-	
+	int	i;
+
+	while ()
 }
 
 int	parse_dict_str(char *str, int size, t_dict *tdp)
@@ -24,7 +26,6 @@ int	parse_dict_str(char *str, int size, t_dict *tdp)
 		}
 		tdlp = malloc(sizeof(t_dict_list));
 	}
-
 }
 
 int	parse_dict(char *filename, t_dict *tdp)
@@ -43,6 +44,7 @@ int	parse_dict(char *filename, t_dict *tdp)
 	while (size > 0)
 	{
 		ft_strncpy(file_str + file_str_i, buf, size);
+		size = read(fd, buf, sizeof(buf));
 		file_str_i += size;
 	}
 	parse_dict_str(file_str, file_str_i, tdp);

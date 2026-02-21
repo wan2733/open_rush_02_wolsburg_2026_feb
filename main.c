@@ -4,7 +4,8 @@
 int main_next(char *dict_file_name, char *num_str)
 {
     printf("[info] main_next dict_file_name: %s num_str: %s", dict_file_name, num_str);
-
+	t_dict td;
+	parse_dict(dict_file_name, &td);
 }
 
 int main(int argc, char **argv)
