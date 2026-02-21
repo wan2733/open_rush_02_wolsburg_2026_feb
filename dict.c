@@ -13,8 +13,8 @@ int	parse_dict_str(char *str, int size, t_dict *tdp)
 	char		**strl;
 	t_dict_list	*tdlp;
 
-	i = 0x0;
-	strl = ft_split(str, 0xa);
+	i = 0;
+	strl = ft_split(str, 10);
 	tdlp = malloc(sizeof(t_dict_list));
 	while (strl[i])
 	{
@@ -31,16 +31,16 @@ int	parse_dict(char *filename, t_dict *tdp)
 {
 	int		fd;
 	int		size;
-	char	buf[0x100];
-	char	file_str[0x1000];
+	char	buf[256];
+	char	file_str[4096];
 	int		file_str_i;
 
-	fd = open(filename, 0x0);
-	if (fd <= 0x0)
-		return (-0x1);
-	file_str_i = 0x0;
+	fd = open(filename, 0);
+	if (fd <= 0)
+		return (-1);
+	file_str_i = 0;
 	size = read(fd, buf, sizeof(buf));
-	while (size > 0x0)
+	while (size > 0)
 	{
 		ft_strncpy(file_str + file_str_i, buf, size);
 		file_str_i += size;
@@ -52,7 +52,7 @@ int	free_dict(t_dict tdp)
 {
 	int	i;
 
-	i = 0x0;
+	i = 0;
 	while (i < tdp.size)
 		free(tdp.dict_list[i++]);
 }
