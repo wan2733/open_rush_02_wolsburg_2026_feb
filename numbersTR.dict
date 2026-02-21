@@ -1,0 +1,41 @@
+0: sıfır
+1: bir
+2: iki
+3: uç
+4: dört
+5: beş
+6: altı
+7: yedi
+8: sekiz
+9: dokuz
+10: on
+11: on bir 
+12: on iki
+13: on uc
+14: on dort
+15: on bes
+16: on alti
+17: on yedi
+18: on sekiz
+19: on dokuz
+20: yirmi
+30: otuz
+40: kırk
+50: elli
+60: altmış
+70: yetmiş
+80: seksen
+90: doksan
+100: yüz
+1000: bin
+1000000: milyon
+1000000000: bilyon
+1000000000000: trilyon
+1000000000000000: katrilyon
+1000000000000000000: kentilyon
+1000000000000000000000: sekstilyon
+1000000000000000000000000: septilyon
+1000000000000000000000000000: oktilyon
+1000000000000000000000000000000: milyarlik
+1000000000000000000000000000000000: desilyon
+1000000000000000000000000000000000000: undesilyon
