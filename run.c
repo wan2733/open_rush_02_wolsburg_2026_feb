@@ -56,7 +56,6 @@ int run(char *num, t_dict *dict, char **result)
         if (!run(remainder, dict, &suffix))
         {
             new_result = str_dup_malloc(*result, " ", suffix);
-            free(suffix);
             free(*result);
             *result = new_result;
         }
@@ -66,15 +65,13 @@ int run(char *num, t_dict *dict, char **result)
         if (!run(quotient, dict, &prefix))
         {
             new_result = str_dup_malloc(prefix, " ", *result);
-            free(prefix);
             free(*result);
             *result = new_result;
         }
     }
-    // if (suffix)
-    //     free(suffix);
-    // if (prefix)
-    //     free(prefix);
+
+    free(suffix);
+    free(prefix);
     free(quotient);
     free(remainder);
     return 0;
