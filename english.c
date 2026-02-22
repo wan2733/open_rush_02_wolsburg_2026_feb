@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   english.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shteng <shteng@student.42wolfsburg.de      +#+  +:+       +#+        */
+/*   By: wchu <wchu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/22 20:51:37 by shteng            #+#    #+#             */
-/*   Updated: 2026/02/22 21:32:55 by shteng           ###   ########.fr       */
+/*   Updated: 2026/02/22 22:19:06 by wchu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ int	check_word(char *str)
 int	english_post_process(char **str)
 {
 	char	**words;
-	int	i;
-	int	n;
+	int		i;
+	int		n;
 
 	words = ft_split(str[0], " ");
 	n = 0;
@@ -54,5 +54,5 @@ int	english_post_process(char **str)
 		i++;
 	}
 	ft_split_free(words);
-	return 0;
+	return (0);
 }
