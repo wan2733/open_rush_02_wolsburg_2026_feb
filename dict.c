@@ -13,11 +13,12 @@ char	*skip_spaces(char *list_row)
 	
 	while (is_space(*list_row))
 		list_row++;
-	while (list_row[j] && !is_space(list_row[j]))
+	while (list_row[j])
 		j++;
+	while (list_row[j] && is_space(list_row[j]))
+		j--;
 	if (list_row[j])
 		list_row[j] = 0;
-
 	return ft_strdup(list_row);
 }
 

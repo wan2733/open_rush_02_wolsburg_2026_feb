@@ -40,7 +40,9 @@ int run(char *num, t_dict *dict, char **result)
     if (ft_strcmp(num, "0") == 0 || ft_strcmp(num, "1") == 0)
     {
         //printf("ck1 %s\n", dict->dict_list[index].word);
-        *result = str_dup_malloc(*result, "", dict->dict_list[index].word);
+        new_result = str_dup_malloc(*result, "", dict->dict_list[index].word);
+        free(*result);
+        
         return 0;
     }
     divide_big_ints(num, dict->dict_list[index].number, &quotient, &remainder);
