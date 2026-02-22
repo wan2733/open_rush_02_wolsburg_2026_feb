@@ -61,6 +61,7 @@ int	parse_dict_str(char *str, int size, t_dict *tdp)
 		
 		i += 0x1;
 	}
+	ft_split_free(strl);
 	return 0;
 }
 

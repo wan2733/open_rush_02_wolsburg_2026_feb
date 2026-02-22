@@ -37,5 +37,6 @@ void	free_str_split(char **strs);
 int run(char *num, t_dict *dict, char **result);
 int divide_big_ints(char *dividend, char *divisor, char **quotient, char **remainder);
 char	*skip_spaces(char *list_row);
+int	ft_split_free(char **splited_str);
 
 #endif
