@@ -44,5 +44,6 @@ char	*skip_spaces_num(char *list_row);
 int print_error(int error_code);
 void	ft_putstr(char *str);
 int	english_post_process(char **str);
+void	ss_helper(int i, int j, char *s1, char *s2);
 
 #endif
