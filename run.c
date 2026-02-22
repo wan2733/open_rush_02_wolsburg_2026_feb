@@ -71,10 +71,10 @@ int run(char *num, t_dict *dict, char **result)
             *result = new_result;
         }
     }
-    if (suffix)
-        free(suffix);
-    if (prefix)
-        free(prefix);
+    // if (suffix)
+    //     free(suffix);
+    // if (prefix)
+    //     free(prefix);
     free(quotient);
     free(remainder);
     return 0;
