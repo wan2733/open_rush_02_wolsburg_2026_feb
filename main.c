@@ -51,11 +51,11 @@ int	main_next(char *dict_file_name, char *num_str)
 	r[0] = 0;
 	result = &r;
 	run(num_str, &td, result);
-	//english_post_process(result);
 	if (is_neg)
 		write(1, "-", 1);
-	write(1, r, ft_strlen(r));
+	//write(1, r, ft_strlen(r));
 	//printf("Final result: %s\n", r);
+	english_post_process(result);
 	free(r);
 	free_dict(&td);
 	free(num_str);
