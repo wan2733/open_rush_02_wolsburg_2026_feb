@@ -27,10 +27,12 @@ int run(char *num, t_dict *dict, char **result)
     char *new_result;
 
     prefix = malloc(1);
-    if (!prefix) return 1;
+    if (!prefix) 
+        return -1;
     prefix[0] = 0;
     suffix = malloc(1);
-    if (!suffix) return 1;
+    if (!suffix) 
+        return -1;
     suffix[0] = 0;
 
     if (find_in_dict(dict, num, &index))

@@ -6,7 +6,7 @@
 /*   By: wchu <wchu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/21 11:25:25 by jdenaux           #+#    #+#             */
-/*   Updated: 2026/02/22 17:52:06 by wchu             ###   ########.fr       */
+/*   Updated: 2026/02/22 18:11:43 by wchu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,8 @@ char	*ft_strdup(char *str)
 	while (str[len])
 		len++;
 	dest = (char *)malloc(sizeof(char) * (len + 1));
-	if (dest == NULL)
-		return (NULL);
+	if (!dest)
+		return 0;
 	while (str[i])
 	{
 		dest[i] = str[i];

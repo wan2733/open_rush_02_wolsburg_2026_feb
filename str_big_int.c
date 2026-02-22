@@ -50,14 +50,12 @@ int divide_big_ints(char *dividend, char *divisor, char **quotient, char **remai
     int n = ft_strlen(dividend);
     char *q_buf = malloc(n + 1);
     char *current = calloc(n + 2, sizeof(char));
-    
     if (!q_buf || !current)
     {
         free(q_buf); 
         free(current);
         return 1;
     }
-
     int q_idx = 0;
     int i = 0;
     while (i < n)

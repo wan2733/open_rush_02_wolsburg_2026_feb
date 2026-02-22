@@ -29,6 +29,8 @@ int	main_next(char *dict_file_name, char *num_str)
 {
 	t_dict	td;
 	td.dict_list = malloc(sizeof(t_dict_list) * 100);
+	if (!td.dict_list)
+		return -1;
 	td.size = 0;
 
 	if (parse_num_str(&num_str))
