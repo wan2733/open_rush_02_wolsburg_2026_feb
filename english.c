@@ -60,5 +60,6 @@ int	english_post_process(char **str)
 		}
 		i++;
 	}
+	ft_split_free(words);
 	return 0;
 }
