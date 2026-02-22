@@ -19,6 +19,9 @@ int parse_num_str(char **num_str, int *is_neg)
 		new_str = ft_strdup(new_str + 1);
 		free(*num_str);
 		*num_str = new_str;
+		new_str = skip_spaces_num(*num_str + 1);
+		free(*num_str);
+		*num_str = new_str;
 	}
 	else
 		*is_neg = 0;
