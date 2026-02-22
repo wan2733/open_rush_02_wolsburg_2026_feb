@@ -6,7 +6,7 @@
 /*   By: wchu <wchu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/22 21:30:04 by wchu              #+#    #+#             */
-/*   Updated: 2026/02/22 21:30:04 by wchu             ###   ########.fr       */
+/*   Updated: 2026/02/22 21:31:58 by wchu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	divide_big_ints_2(char **qcqs, int *nqiiclc,
 	free(qcqs[1]);
 	if (!*quotient || !*remainder)
 		return (-1);
-    return (0);
+	return (0);
 }
 
 int	divide_big_ints(char *dividend, char *divisor, char **quotient,
@@ -53,6 +53,6 @@ int	divide_big_ints(char *dividend, char *divisor, char **quotient,
 		nqiiclc[2]++;
 	}
 	if (divide_big_ints_2(qcqs, nqiiclc, quotient, remainder))
-        return (-1);
+		return (-1);
 	return (0);
 }

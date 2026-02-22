@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   run.c                                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: wchu <wchu@student.42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/02/22 21:32:09 by wchu              #+#    #+#             */
+/*   Updated: 2026/02/22 21:32:38 by wchu             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "rush02.h"
 
 int	find_in_dict(t_dict *dict, char *num_str, int *index)
@@ -7,7 +19,7 @@ int	find_in_dict(t_dict *dict, char *num_str, int *index)
 	i = dict->size - 1;
 	while (i >= 0)
 	{
-		if (ft_str_num_cmp(dict->dict_list[i].number, num_str) <= 0) 
+		if (ft_str_num_cmp(dict->dict_list[i].number, num_str) <= 0)
 		{
 			*index = i;
 			return (0);
@@ -82,4 +94,3 @@ int	run(char *num, t_dict *dict, char **result)
 	free(vars[3]);
 	return (0);
 }
-
