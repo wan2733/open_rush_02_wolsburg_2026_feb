@@ -6,7 +6,7 @@
 /*   By: wchu <wchu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/13 11:14:46 by wchu              #+#    #+#             */
-/*   Updated: 2026/02/22 13:53:33 by wchu             ###   ########.fr       */
+/*   Updated: 2026/02/22 17:52:19 by wchu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,14 +83,3 @@ int	ft_split_free(char **splited_str)
 	free(splited_str);
 	return 0;
 }
-
-// int main()
-// {
-// 	char** r = ft_split(",,hello,world,,", ",");
-// 	int i = 0;
-// 	while (r[i])
-// 	{
-// 		printf("%s\n", r[i]);
-// 		i += 1;
-// 	}
-// }

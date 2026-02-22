@@ -24,7 +24,6 @@ int run(char *num, t_dict *dict, char **result)
     char *remainder;
     char *suffix;
     char *prefix;
-//    char *pre;
     char *new_result;
 
     prefix = malloc(1);
@@ -34,20 +33,16 @@ int run(char *num, t_dict *dict, char **result)
     if (!suffix) return 1;
     suffix[0] = 0;
 
-    //printf("num %s %d\n", num, dict->size);
     if (find_in_dict(dict, num, &index))
         return -1;
     if (ft_strcmp(num, "0") == 0 || ft_strcmp(num, "1") == 0)
     {
-        //printf("ck1 %s\n", dict->dict_list[index].word);
         new_result = str_dup_malloc(*result, "", dict->dict_list[index].word);
         free(*result);
         *result = new_result;
         return 0;
     }
     divide_big_ints(num, dict->dict_list[index].number, &quotient, &remainder);
-    //printf("%s %s: %s\n", num, dict->dict_list[index].number, dict->dict_list[index].word);
-    //printf("quotient: %s, remainder: %s\n", quotient, remainder);
     new_result = str_dup_malloc(*result, "", dict->dict_list[index].word);
     free(*result);
     *result = new_result;

@@ -6,7 +6,7 @@
 /*   By: wchu <wchu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/21 11:25:25 by jdenaux           #+#    #+#             */
-/*   Updated: 2026/02/22 11:54:53 by wchu             ###   ########.fr       */
+/*   Updated: 2026/02/22 17:52:06 by wchu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,18 +120,3 @@ int	ft_atoi(char *str, long long *value)
 	*value = (res * sign);
 	return (0);
 }
-/*
-in	ft_check_argv(char *str)
-{
-	int	i;
-	
-	if (str[0] == '\0')
-		return (-1);
-	while (str[i])
-	{
-		if (!(str[i] >= '0' && str[i] <= 9)
-			return (-1);
-		i++;
-	}
-	return (0);
-}*/

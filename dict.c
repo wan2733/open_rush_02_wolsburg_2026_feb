@@ -71,21 +71,15 @@ int	parse_dict_str(char *str, int size, t_dict *tdp)
 	
 	while (strl[i])
 	{
-		//printf("ck0:%s\n", strl[i]);
 		if (!parse_list_row(strl[i], tdp->dict_list + tdp->size))
 		{
-			//printf("ck1 %s: %s\n", tdp->dict_list[tdp->size].number, tdp->dict_list[tdp->size].word);
 			tdp->size++;
 		}
-		
 		i += 0x1;
 	}
 	ft_split_free(strl);
 	return 0;
 }
-
-//ck0:1000000000000000000000: sextillion
-//    9223372036854775807LL
 
 int	parse_dict(char *filename, t_dict *tdp)
 {

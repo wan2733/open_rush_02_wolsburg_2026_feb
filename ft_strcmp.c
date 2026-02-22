@@ -56,21 +56,3 @@ int	ft_str_num_cmp(char *s1, char *s2)
 	else
 		return (ft_strcmp(s1, s2));
 }
-
-/*
-#include <stdio.h>
-#include <string.h>
-int	main(int argc, char **argv)
-{
-	char	*s1;
-	char	*s2;
-
-	if (argc == 3)
-	{
-		s1 = argv[1];
-		s2 = argv[2];
-		printf("#%s, %s\n", s1, s2);
-		printf("%d, %d\n", strcmp(s1, s2), ft_strcmp(s1, s2));
-	}
-}
-*/
