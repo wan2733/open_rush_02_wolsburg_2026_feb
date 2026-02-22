@@ -1,5 +1,13 @@
 #include "rush02.h"
 
+int print_error(int error_code)
+{
+	if (error_code == 0)
+		return -1;
+	write(1, "Error", 6);
+	return 0;
+}
+
 int parse_num_str(char **num_str, int *is_neg)
 {
 	char	*new_str = skip_spaces_num(*num_str);
@@ -56,6 +64,8 @@ int	main_next(char *dict_file_name, char *num_str)
 
 int	main(int argc, char **argv)
 {
+	int	ec;
+
 	if (argc == 2)
 	{
 		if (ft_strcmp(argv[1], "-") == 0)
@@ -64,12 +74,16 @@ int	main(int argc, char **argv)
 		}
 		else
 		{
-			return (main_next("numbers.dict", argv[1]));
+			ec = main_next("numbers.dict", argv[1]);
+			if (ec)
+				print_error(ec);
 		}
 	}
 	else if (argc == 3)
 	{
-		return (main_next(argv[1], argv[2]));
+		ec = main_next(argv[1], argv[2]);
+			if (ec)
+				print_error(ec);
 	}
 	else
 	{
