@@ -12,6 +12,19 @@
 
 #include "rush02.h"
 
+void	free_str_split(char **strs)
+{
+	int	i;
+
+	i = 0;
+	while (strs[i])
+	{
+		free(strs[i]);
+		i++;
+	}
+	free(strs);
+}
+
 void	ft_putchar(char c)
 {
 	write(1, &c, 1);
@@ -49,6 +62,37 @@ char	*ft_strdup(char *str)
 	}
 	dest[i] = '\0';
 	return (dest);
+}
+
+char	*str_dup_malloc(char *s1, char *sep, char *s2)
+{
+	char	*result;
+	int		len1;
+	int		selen;
+	int		len2;
+	int		i;
+
+	len1 = 0;
+	selen = 0;
+	len2 = 0;
+	while (s1[len1])
+		len1++;
+	while (sep[selen])
+		selen++;
+	while (s2[len2])
+		len2++;
+	result = malloc(len1 + selen + len2 + 1);
+	if (!result)
+		return 0;
+	i = 0;
+	while (*s1)
+		result[i++] = *s1++;
+	while (*sep)
+		result[i++] = *sep++;
+	while (*s2)
+		result[i++] = *s2++;
+	result[i] = '\0';
+	return (result);
 }
 
 int	ft_atoi(char *str, long long *value)
