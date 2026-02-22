@@ -32,16 +32,25 @@ int run(char *num, t_dict *dict, char **result)
     prefix[0] = 0;
     suffix = malloc(1);
     if (!suffix) 
+    {
+        free(prefix);
         return -1;
+    }
     suffix[0] = 0;
 
     if (find_in_dict(dict, num, &index))
+    {
+        free(suffix);
+        free(prefix);
         return -1;
+    }
     if (ft_strcmp(num, "0") == 0 || ft_strcmp(num, "1") == 0)
     {
         new_result = str_dup_malloc(*result, "", dict->dict_list[index].word);
         free(*result);
         *result = new_result;
+        free(suffix);
+        free(prefix);
         return 0;
     }
     divide_big_ints(num, dict->dict_list[index].number, &quotient, &remainder);
