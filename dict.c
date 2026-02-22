@@ -65,6 +65,9 @@ int	parse_dict_str(char *str, int size, t_dict *tdp)
 
 	i = 0;
 	strl = ft_split(str, "\n");
+
+	if (!strl)
+		return -1;
 	
 	while (strl[i])
 	{
