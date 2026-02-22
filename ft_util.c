@@ -6,7 +6,7 @@
 /*   By: wchu <wchu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/21 11:25:25 by jdenaux           #+#    #+#             */
-/*   Updated: 2026/02/22 18:11:43 by wchu             ###   ########.fr       */
+/*   Updated: 2026/02/22 18:03:23 by shteng           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,23 +25,6 @@ void	free_str_split(char **strs)
 	free(strs);
 }
 
-void	ft_putchar(char c)
-{
-	write(1, &c, 1);
-}
-
-void	ft_putstr(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-	{
-		ft_putchar(str[i]);
-		i++;
-	}
-}
-
 char	*ft_strdup(char *str)
 {
 	char	*dest;
@@ -53,8 +36,8 @@ char	*ft_strdup(char *str)
 	while (str[len])
 		len++;
 	dest = (char *)malloc(sizeof(char) * (len + 1));
-	if (!dest)
-		return 0;
+	if (dest == NULL)
+		return (NULL);
 	while (str[i])
 	{
 		dest[i] = str[i];
@@ -72,18 +55,12 @@ char	*str_dup_malloc(char *s1, char *sep, char *s2)
 	int		len2;
 	int		i;
 
-	len1 = 0;
-	selen = 0;
-	len2 = 0;
-	while (s1[len1])
-		len1++;
-	while (sep[selen])
-		selen++;
-	while (s2[len2])
-		len2++;
+	len1 = ft_strlen(s1);
+	selen = ft_strlen(sep);
+	len2 = ft_strlen(s2);
 	result = malloc(len1 + selen + len2 + 1);
 	if (!result)
-		return 0;
+		return (0);
 	i = 0;
 	while (*s1)
 		result[i++] = *s1++;

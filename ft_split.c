@@ -6,7 +6,7 @@
 /*   By: wchu <wchu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/13 11:14:46 by wchu              #+#    #+#             */
-/*   Updated: 2026/02/22 18:11:24 by wchu             ###   ########.fr       */
+/*   Updated: 2026/02/22 17:49:59 by shteng           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,6 @@ char	*split_help(char *str, char *charset, int *i)
 	if (j <= 0)
 		return (0);
 	ca = malloc(j + 1);
-	if (!ca)
-		return 0;
 	ca[j] = 0;
 	size = j;
 	while (j)
@@ -65,8 +63,6 @@ char	**ft_split(char *str, char *charset)
 	i = 0;
 	ri = 0;
 	r = malloc(4096);
-	if (!r)
-		return 0;
 	while (str[i])
 	{
 		t = split_help(str, charset, &i);
@@ -79,11 +75,22 @@ char	**ft_split(char *str, char *charset)
 
 int	ft_split_free(char **splited_str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (splited_str[i])
 		free(splited_str[i++]);
 	free(splited_str);
-	return 0;
+	return (0);
 }
+
+// int main()
+// {
+// 	char** r = ft_split(",,hello,world,,", ",");
+// 	int i = 0;
+// 	while (r[i])
+// 	{
+// 		printf("%s\n", r[i]);
+// 		i += 1;
+// 	}
+// }
