@@ -27,7 +27,7 @@ int	parse_dict(char *filename, t_dict *tdp);
 int	parse_list_row(char *list_row, t_dict_list *tdlp);
 int	parse_dict_str(char *str, int size, t_dict *tdp);
 int	parse_dict(char *filename, t_dict *tdp);
-int	free_dict(t_dict tdp);
+int	free_dict(t_dict *tdp);
 int	ft_strcmp(char *s1, char *s2);
 int	ft_str_num_cmp(char *s1, char *s2);
 void	interactive();

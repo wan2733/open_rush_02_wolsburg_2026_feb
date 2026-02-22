@@ -88,12 +88,8 @@ int	parse_dict(char *filename, t_dict *tdp)
 	return parse_dict_str(file_str, file_str_i, tdp);
 }
 
-int	free_dict(t_dict tdp)
+int	free_dict(t_dict *tdp)
 {
-	unsigned int	i;
-
-	i = 0;
-	while (i < tdp.size)
-		free((tdp.dict_list + i));
+	free((tdp->dict_list));
 	return 0;
 }

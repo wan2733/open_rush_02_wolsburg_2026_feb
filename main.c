@@ -47,6 +47,7 @@ int	main_next(char *dict_file_name, char *num_str)
 	write(1, r, ft_strlen(r));
 	//printf("Final result: %s\n", r);
 	free(r);
+	free_dict(&td);
 	return (0);
 }
 
