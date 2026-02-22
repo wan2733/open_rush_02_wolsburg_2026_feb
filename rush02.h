@@ -40,5 +40,6 @@ char	*skip_spaces(char *list_row);
 int	ft_split_free(char **splited_str);
 int sort_dict(t_dict *dict);
 void print_dict(t_dict *tdp);
+char	*skip_spaces_num(char *list_row);
 
 #endif

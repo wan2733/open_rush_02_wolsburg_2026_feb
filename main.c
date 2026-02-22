@@ -2,7 +2,7 @@
 
 int parse_num_str(char **num_str, int *is_neg)
 {
-	char	*new_str = skip_spaces(*num_str);
+	char	*new_str = skip_spaces_num(*num_str);
 	*num_str = new_str;
 	int i = 0;
 	if (new_str[i] == '-')
