@@ -41,7 +41,8 @@ int	main_next(char *dict_file_name, char *num_str)
 	int is_neg;
 	if (parse_num_str(&num_str, &is_neg))
 		return -1;
-	parse_dict(dict_file_name, &td);
+	if (parse_dict(dict_file_name, &td))
+		return -1;
 	sort_dict(&td);
 	//print_dict(&td);
 	char **result;
