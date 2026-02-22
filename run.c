@@ -42,13 +42,15 @@ int run(char *num, t_dict *dict, char **result)
         //printf("ck1 %s\n", dict->dict_list[index].word);
         new_result = str_dup_malloc(*result, "", dict->dict_list[index].word);
         free(*result);
-        
+        *result = new_result;
         return 0;
     }
     divide_big_ints(num, dict->dict_list[index].number, &quotient, &remainder);
     //printf("%s %s: %s\n", num, dict->dict_list[index].number, dict->dict_list[index].word);
     //printf("quotient: %s, remainder: %s\n", quotient, remainder);
-    *result = str_dup_malloc(*result, "", dict->dict_list[index].word);
+    new_result = str_dup_malloc(*result, "", dict->dict_list[index].word);
+    free(*result);
+    *result = new_result;
     if (remainder[0] != '0')
     {
         if (!run(remainder, dict, &suffix))
