@@ -10,5 +10,6 @@ void	interactive()
 		buffer[size - 1] = 0; // to discard enter
 		//printf("call main_next(\"numbers.dict\", buffer), where buffer = %s", buffer);
 		main_next("numbers.dict", buffer);
+		write(1, "\n", 1);
 	}
 }
