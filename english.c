@@ -45,13 +45,18 @@ int	english_post_process(char **str)
 	while (words[i])
 	{
 		ft_putstr(words[i]);
-		write(1, " ", 1);
-		if (check_word(words[i]))
+		if (!check_word(words[i]) && i != (n - 1))
+			ft_putstr(" ");
+		if (check_word(words[i]) && i != (n - 1))
 		{
 			if (i == n - 2)
-				ft_putstr("and ");
+			{
+				ft_putstr(" and ");
+			}
 			else
+			{
 				ft_putstr(", ");
+			}
 		}
 		i++;
 	}
