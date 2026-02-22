@@ -9,7 +9,8 @@ void	interactive()
 	{
 		buffer[size - 1] = 0; // to discard enter
 		//printf("call main_next(\"numbers.dict\", buffer), where buffer = %s", buffer);
-		main_next("numbers.dict", buffer);
+		if (main_next("numbers.dict", buffer))
+			print_error(-1);
 		write(1, "\n", 1);
 	}
 }

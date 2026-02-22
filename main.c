@@ -19,6 +19,9 @@ int parse_num_str(char **num_str, int *is_neg)
 		new_str = ft_strdup(new_str + 1);
 		free(*num_str);
 		*num_str = new_str;
+		new_str = skip_spaces_num(*num_str + 1);
+		free(*num_str);
+		*num_str = new_str;
 	}
 	else
 		*is_neg = 0;
@@ -41,7 +44,8 @@ int	main_next(char *dict_file_name, char *num_str)
 	int is_neg;
 	if (parse_num_str(&num_str, &is_neg))
 		return -1;
-	parse_dict(dict_file_name, &td);
+	if (parse_dict(dict_file_name, &td))
+		return -1;
 	sort_dict(&td);
 	//print_dict(&td);
 	char **result;
@@ -51,11 +55,11 @@ int	main_next(char *dict_file_name, char *num_str)
 	r[0] = 0;
 	result = &r;
 	run(num_str, &td, result);
-	//english_post_process(result);
 	if (is_neg)
 		write(1, "-", 1);
-	write(1, r, ft_strlen(r));
+	//write(1, r, ft_strlen(r));
 	//printf("Final result: %s\n", r);
+	english_post_process(result);
 	free(r);
 	free_dict(&td);
 	free(num_str);
