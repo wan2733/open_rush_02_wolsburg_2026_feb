@@ -48,6 +48,7 @@ int	main_next(char *dict_file_name, char *num_str)
 	//printf("Final result: %s\n", r);
 	free(r);
 	free_dict(&td);
+	free(num_str);
 	return (0);
 }
 
