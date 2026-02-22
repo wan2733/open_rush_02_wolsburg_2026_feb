@@ -6,7 +6,7 @@
 /*   By: wchu <wchu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/22 22:07:25 by wchu              #+#    #+#             */
-/*   Updated: 2026/02/22 22:18:01 by wchu             ###   ########.fr       */
+/*   Updated: 2026/02/22 22:20:28 by wchu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ int	main_arg2(char **argv)
 		if (ec)
 			print_error(ec);
 	}
+	return (0);
 }
 
 int	main(int argc, char **argv)
