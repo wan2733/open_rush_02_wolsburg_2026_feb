@@ -45,6 +45,18 @@ int	ft_strcmp(char *s1, char *s2)
 	return (0);
 }
 
+int	ft_str_num_cmp(char *s1, char *s2)
+{
+	int s1_len = ft_strlen(s1);
+	int s2_len = ft_strlen(s2);
+	if (s1_len > s2_len)
+		return (1);
+	else if (s1_len < s2_len)
+		return (-1);
+	else
+		return (ft_strcmp(s1, s2));
+}
+
 /*
 #include <stdio.h>
 #include <string.h>

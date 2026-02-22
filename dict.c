@@ -1,75 +1,72 @@
 #include "rush02.h"
 
-char	*skip_spaces(char *list_row)
+int	is_space(char c)
 {
-	while (*list_row == ' ' || *list_row == '\t'
-		|| *list_row == '\v' || *list_row == '\f' || *list_row == '\r')
-		list_row++;
-	return (list_row);
+	return (c == ' ' || c == '\t' || c == '\n' || c == '\r' || c == '\v' || c == '\f');
 }
 
-int	parse_list_row(char *list_row, t_dict_list *tdlp)
+char	*skip_spaces(char *list_row)
 {
-	int			i;
-	long long	nb;
+	int j;
 
-	nb = 0;
-	list_row = skip_spaces(list_row);
-	if (*list_row < '0' || *list_row > '9')
+	j = 0;
+	
+	while (is_space(*list_row))
+		list_row++;
+	while (list_row[j])
+		j++;
+	while (list_row[j] && is_space(list_row[j]))
+		j--;
+	if (list_row[j])
+		list_row[j] = 0;
+	return ft_strdup(list_row);
+}
+
+int	parse_list_row(char	*list_row, t_dict_list *tdlp)
+{
+	if (!list_row || !tdlp)
 		return (-1);
-	while (*list_row >= '0' && *list_row <= '9')
-		nb = nb * 10 + (*list_row++ - '0');
-	tdlp->number = malloc(sizeof(long long));
-	if (!tdlp->number)
+	char **number_word = ft_split(list_row, ":");
+	
+	if (!number_word || !number_word[0] || !number_word[1])
+	{
+		free_str_split(number_word);
 		return (-1);
-	*tdlp->number = nb;
-	list_row = skip_spaces(list_row);
-	if (*list_row != ':')
-		return (-1);
-	list_row++;
-	list_row = skip_spaces(list_row);
-	i = 0;
-	while (list_row[i] && list_row[i] != '\n')
-		i++;
-	tdlp->word = malloc(sizeof(char) * (i + 1));
-	if (!tdlp->word)
-		return (-1);
-	i = 0;
-	while (*list_row && *list_row != '\n')
-		tdlp->word[i++] = *list_row++;
-	tdlp->word[i] = '\0';
-	return (0);
+	}
+	tdlp->number = skip_spaces(number_word[0]);
+	tdlp->word = skip_spaces(number_word[1]);
+	free_str_split(number_word);
+	return 0;
 }
 
 int	parse_dict_str(char *str, int size, t_dict *tdp)
 {
-	int		i;
-	int		count;
-	char	**strl;
+	int			i;
+	char		**strl;
 
-	if (!tdp || size <= 0)
-		return (-1);
-	strl = ft_split(str, 10);
-	if (!strl)
-		return (-1);
-	count = 0;
-	while (strl[count])
-		count++;
-	tdp->dict_list = malloc(sizeof(t_dict_list) * count);
-	if (!tdp->dict_list)
-		return (-1);
-	tdp->size = 0;
+	if (!tdp || !size)
+		return -1;
+
 	i = 0;
+	strl = ft_split(str, "\n");
+	
 	while (strl[i])
 	{
-		if (parse_list_row(strl[i], &tdp->dict_list[tdp->size]) == 0)
+		//printf("ck0:%s\n", strl[i]);
+		if (!parse_list_row(strl[i], tdp->dict_list + tdp->size))
+		{
+			//printf("ck1 %s: %s\n", tdp->dict_list[tdp->size].number, tdp->dict_list[tdp->size].word);
 			tdp->size++;
-		free(strl[i]);
-		i++;
+		}
+		
+		i += 0x1;
 	}
-	free(strl);
-	return (0);
+	ft_split_free(strl);
+	return 0;
 }
+
+//ck0:1000000000000000000000: sextillion
+//    9223372036854775807LL
 
 int	parse_dict(char *filename, t_dict *tdp)
 {
@@ -87,24 +84,23 @@ int	parse_dict(char *filename, t_dict *tdp)
 	while (size > 0)
 	{
 		ft_strncpy(file_str + file_str_i, buf, size);
-		size = read(fd, buf, sizeof(buf));
 		file_str_i += size;
+		size = read(fd, buf, sizeof(buf));
 	}
-	parse_dict_str(file_str, file_str_i, tdp);
-	return (0);
+	return parse_dict_str(file_str, file_str_i, tdp);
 }
 
-int	free_dict(t_dict tdp)
+int	free_dict(t_dict *tdp)
 {
-	unsigned int	i;
+	unsigned int i;
 
 	i = 0;
-	while (i < tdp.size)
+	while (i < tdp->size)
 	{
-		free(tdp.dict_list[i].number);
-		free(tdp.dict_list[i].word);
+		free(tdp->dict_list[i].number);
+		free(tdp->dict_list[i].word);
 		i++;
 	}
-	free(tdp.dict_list);
-	return (0);
+	free((tdp->dict_list));
+	return 0;
 }
