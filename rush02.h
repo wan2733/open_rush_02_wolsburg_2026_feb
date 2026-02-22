@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   rush02.h                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: wchu <wchu@student.42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/02/22 21:56:49 by wchu              #+#    #+#             */
+/*   Updated: 2026/02/22 21:56:50 by wchu             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef RUSH02_H
 # define RUSH02_H
 # include <fcntl.h>
@@ -46,6 +58,6 @@ int						print_error(int error_code);
 void					ft_putstr(char *str);
 int						english_post_process(char **str);
 void					ss_helper(int i, int j, char *s1, char *s2);
-int	                    is_greater_equal(char *s1, char *s2);
-void	                subtract_strings(char *s1, char *s2);
+int						is_greater_equal(char *s1, char *s2);
+void					subtract_strings(char *s1, char *s2);
 #endif
