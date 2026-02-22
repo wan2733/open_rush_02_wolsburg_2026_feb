@@ -24,7 +24,7 @@ int run(char *num, t_dict *dict, char **result)
     char *remainder;
     char *suffix;
     char *prefix;
-    char *pre;
+//    char *pre;
     char *new_result;
 
     prefix = malloc(1);
