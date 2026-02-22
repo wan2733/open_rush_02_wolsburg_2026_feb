@@ -90,6 +90,18 @@ int	parse_dict(char *filename, t_dict *tdp)
 	return parse_dict_str(file_str, file_str_i, tdp);
 }
 
+void print_dict(t_dict *tdp)
+{
+	unsigned int i;
+
+	i = 0;
+	while (i < tdp->size)
+	{
+		printf("%s: [%s]\n", tdp->dict_list[i].number, tdp->dict_list[i].word);
+		i++;
+	}
+}
+
 int	free_dict(t_dict *tdp)
 {
 	unsigned int i;
