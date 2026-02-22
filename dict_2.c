@@ -1,61 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   dict.c                                             :+:      :+:    :+:   */
+/*   dict_2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wchu <wchu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/22 21:51:20 by wchu              #+#    #+#             */
-/*   Updated: 2026/02/22 21:51:21 by wchu             ###   ########.fr       */
+/*   Updated: 2026/02/22 21:53:06 by wchu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rush02.h"
 
-int	is_space(char c)
+int	parse_list_row(char *list_row, t_dict_list *tdlp)
 {
-	return (c == ' ' || c == '\t' || c == '\n' || c == '\r' || c == '\v' || c == '\f');
-}
+	char	**number_word;
 
-char	*skip_spaces_num(char *list_row)
-{
-	int j;
-
-	j = 0;
-	while (is_space(*list_row) || (*list_row == '0' && *(list_row + 1) != 0))
-		list_row++;
-	while (list_row[j])
-		j++;
-	while (list_row[j] && is_space(list_row[j]))
-		j--;
-	if (list_row[j])
-		list_row[j] = 0;
-	return ft_strdup(list_row);
-}
-
-char	*skip_spaces(char *list_row)
-{
-	int j;
-
-	j = 0;
-	
-	while (is_space(*list_row))
-		list_row++;
-	while (list_row[j])
-		j++;
-	while (list_row[j] && is_space(list_row[j]))
-		j--;
-	if (list_row[j])
-		list_row[j] = 0;
-	return ft_strdup(list_row);
-}
-
-int	parse_list_row(char	*list_row, t_dict_list *tdlp)
-{
 	if (!list_row || !tdlp)
 		return (-1);
-	char **number_word = ft_split(list_row, ":");
-	
+	number_word = ft_split(list_row, ":");
 	if (!number_word || !number_word[0] || !number_word[1])
 	{
 		free_str_split(number_word);
@@ -64,23 +27,20 @@ int	parse_list_row(char	*list_row, t_dict_list *tdlp)
 	tdlp->number = skip_spaces(number_word[0]);
 	tdlp->word = skip_spaces(number_word[1]);
 	free_str_split(number_word);
-	return 0;
+	return (0);
 }
 
 int	parse_dict_str(char *str, int size, t_dict *tdp)
 {
-	int			i;
-	char		**strl;
+	int		i;
+	char	**strl;
 
 	if (!tdp || !size)
-		return -1;
-
+		return (-1);
 	i = 0;
 	strl = ft_split(str, "\n");
-
 	if (!strl)
-		return -1;
-	
+		return (-1);
 	while (strl[i])
 	{
 		if (!parse_list_row(strl[i], tdp->dict_list + tdp->size))
@@ -90,7 +50,7 @@ int	parse_dict_str(char *str, int size, t_dict *tdp)
 		i += 0x1;
 	}
 	ft_split_free(strl);
-	return 0;
+	return (0);
 }
 
 int	parse_dict(char *filename, t_dict *tdp)
@@ -112,12 +72,12 @@ int	parse_dict(char *filename, t_dict *tdp)
 		file_str_i += size;
 		size = read(fd, buf, sizeof(buf));
 	}
-	return parse_dict_str(file_str, file_str_i, tdp);
+	return (parse_dict_str(file_str, file_str_i, tdp));
 }
 
-void print_dict(t_dict *tdp)
+void	print_dict(t_dict *tdp)
 {
-	unsigned int i;
+	unsigned int	i;
 
 	i = 0;
 	while (i < tdp->size)
@@ -129,7 +89,7 @@ void print_dict(t_dict *tdp)
 
 int	free_dict(t_dict *tdp)
 {
-	unsigned int i;
+	unsigned int	i;
 
 	i = 0;
 	while (i < tdp->size)
@@ -139,5 +99,5 @@ int	free_dict(t_dict *tdp)
 		i++;
 	}
 	free((tdp->dict_list));
-	return 0;
+	return (0);
 }
