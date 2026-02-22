@@ -4,7 +4,10 @@ int print_error(int error_code)
 {
 	if (error_code == 0)
 		return -1;
-	write(1, "Error", 6);
+	if (error_code < -1)
+		write(1, "Dict Error\n", 11);
+	else
+		write(1, "Error\n", 6);
 	return 0;
 }
 
@@ -45,7 +48,7 @@ int	main_next(char *dict_file_name, char *num_str)
 	if (parse_num_str(&num_str, &is_neg))
 		return -1;
 	if (parse_dict(dict_file_name, &td))
-		return -1;
+		return -2;
 	sort_dict(&td);
 	//print_dict(&td);
 	char **result;

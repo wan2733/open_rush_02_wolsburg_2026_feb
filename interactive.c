@@ -11,6 +11,7 @@ void	interactive()
 		//printf("call main_next(\"numbers.dict\", buffer), where buffer = %s", buffer);
 		if (main_next("numbers.dict", buffer))
 			print_error(-1);
-		write(1, "\n", 1);
+		else
+			write(1, "\n", 1);
 	}
 }
