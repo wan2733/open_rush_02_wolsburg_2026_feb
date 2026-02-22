@@ -21,19 +21,18 @@ void	ft_sort_int_tab(int size, char **tab)
 	}
 }
 
-int sort_dict(t_dict *dict)
+int	sort_dict(t_dict *dict)
 {
 	unsigned int	i;
-	int	j;
-	char	*key_num;
-	char	*key_word;
+	int				j;
+	char			*key_num;
+	char			*key_word;
 
 	i = 1;
 	while (i < dict->size)
 	{
 		key_num = dict->dict_list[i].number;
 		key_word = dict->dict_list[i].word;
-		
 		j = i - 1;
 		while (j >= 0 && ft_str_num_cmp(dict->dict_list[j].number, key_num) > 0)
 		{
@@ -45,5 +44,5 @@ int sort_dict(t_dict *dict)
 		dict->dict_list[j + 1].word = key_word;
 		i += 1;
 	}
-	return 0;
+	return (0);
 }
