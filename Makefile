@@ -1,7 +1,7 @@
 SHELL = /bin/sh
 NAME = rush-02
 CC = cc
-SRCS = main_next.c helper.c dict_1.c dict_2.c ft_split.c ft_strcmp.c ft_strncpy.c ft_util.c interactive.c main.c run.c str_big_int_1.c str_big_int_2.c sort_dict.c english.c
+SRCS = main_next.c helper.c dict_1.c dict_2.c ft_split.c ft_strcmp.c ft_strncpy.c ft_util.c interactive.c main.c run.c str_big_int_1.c str_big_int_2.c sort_dict.c english_1.c english_2.c
 HDRS = rush02.h
 OBJS = $(SRCS:.c=.o)
 CFLAGS = -Wall -Werror -Wextra -std=c11

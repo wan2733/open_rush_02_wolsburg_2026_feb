@@ -6,7 +6,7 @@
 /*   By: wchu <wchu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/22 21:56:49 by wchu              #+#    #+#             */
-/*   Updated: 2026/02/22 22:09:43 by wchu             ###   ########.fr       */
+/*   Updated: 2026/02/22 22:29:11 by wchu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,4 +63,6 @@ void					subtract_strings(char *s1, char *s2);
 int						main_next(char *dict_file_name, char *num_str);
 int						parse_num_str(char **num_str);
 int						print_error(int error_code);
+int						*check_n_max(char **words, int ans[]);
+int						check_word(char *str);
 #endif
