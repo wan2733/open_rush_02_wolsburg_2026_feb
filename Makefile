@@ -5,6 +5,7 @@ SRCS = dict.c ft_split.c ft_strcmp.c ft_strncpy.c ft_util.c interactive.c main.c
 HDRS = rush02.h
 OBJS = $(SRCS:.c=.o)
 CFLAGS = -Wall -Werror -Wextra -std=c11
+ASAN_FLAGS = -fsanitize=address -g
 
 all: $(NAME)
 
@@ -34,6 +35,11 @@ leaks-dict: $(NAME)
 
 valgrind: $(NAME)
 	valgrind --tool=memcheck --leak-check=yes --track-origins=yes -s ./$(NAME) 42
+
+asan: fclean
+	$(CC) $(FLAGS) $(ASAN_FLAGS) -o $(NAME) $(SRCS)
+	./$(NAME) 42
+	./$(NAME) number.dict 42
 
 clean:
 	rm -f $(OBJS)
