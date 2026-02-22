@@ -6,7 +6,7 @@
 /*   By: wchu <wchu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/22 21:56:49 by wchu              #+#    #+#             */
-/*   Updated: 2026/02/22 21:56:50 by wchu             ###   ########.fr       */
+/*   Updated: 2026/02/22 22:09:43 by wchu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,4 +60,7 @@ int						english_post_process(char **str);
 void					ss_helper(int i, int j, char *s1, char *s2);
 int						is_greater_equal(char *s1, char *s2);
 void					subtract_strings(char *s1, char *s2);
+int						main_next(char *dict_file_name, char *num_str);
+int						parse_num_str(char **num_str);
+int						print_error(int error_code);
 #endif
